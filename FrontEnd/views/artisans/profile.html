@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Center profile picture horizontally */
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            color: #666;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .back-button, .save-button {
+            position: absolute;
+            top: 20px;
+        }
+
+        .back-button {
+            left: 20px;
+        }
+
+        .save-button {
+            right: 20px;
+        }
+
+        .edit-button {
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .logout-button {
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .form-control[readonly] {
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Back Button -->
+        <button class="btn btn-secondary back-button" onclick="goBack()">Back</button>
+
+        <!-- Save Changes Button -->
+        <button class="btn btn-success save-button d-none" id="saveButton" onclick="saveChanges()">Save Changes</button>
+
+        <!-- Profile Picture -->
+        <div class="profile-picture">
+            <span>🛠️</span>
+        </div>
+
+        <!-- Edit Profile Button -->
+        <button class="btn btn-primary edit-button" id="editButton" onclick="enableEditing()">Edit Profile</button>
+
+        <!-- Profile Details -->
+        <form>
+            <div class="mb-3">
+                <label for="artisanName" class="form-label">Full Name</label>
+                <input type="text" id="artisanName" class="form-control" value="Jane Smith" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-control" value="janesmith@example.com" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="dob" class="form-label">Date of Birth</label>
+                <input type="date" id="dob" class="form-control" value="1985-08-12" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="skills" class="form-label">Artisan Skills</label>
+                <input type="text" id="skills" class="form-control" placeholder="Enter your artisan skills" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="products" class="form-label">Products Made</label>
+                <textarea id="products" class="form-control" rows="3" placeholder="List the products you create" readonly></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="techniques" class="form-label">Techniques Used</label>
+                <textarea id="techniques" class="form-control" rows="3" placeholder="Enter the techniques you use in your work" readonly></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="experience" class="form-label">Experience (in years)</label>
+                <input type="number" id="experience" class="form-control" placeholder="Enter years of experience" readonly>
+            </div>
+        </form>
+
+        <!-- Log Out Button -->
+        <button class="btn btn-danger logout-button" onclick="logOut()">Log Out</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function enableEditing() {
+            document.getElementById('skills').removeAttribute('readonly');
+            document.getElementById('products').removeAttribute('readonly');
+            document.getElementById('techniques').removeAttribute('readonly');
+            document.getElementById('experience').removeAttribute('readonly');
+            document.getElementById('editButton').classList.add('d-none');
+            document.getElementById('saveButton').classList.remove('d-none');
+        }
+
+        function saveChanges() {
+            document.getElementById('skills').setAttribute('readonly', 'true');
+            document.getElementById('products').setAttribute('readonly', 'true');
+            document.getElementById('techniques').setAttribute('readonly', 'true');
+            document.getElementById('experience').setAttribute('readonly', 'true');
+            document.getElementById('saveButton').classList.add('d-none');
+            document.getElementById('editButton').classList.remove('d-none');
+            alert('Profile updated successfully!');
+        }
+
+        function logOut() {
+            alert('Logging out...');
+            window.location.href = 'login.html'; // Change to your login page URL
+        }
+    </script>
+
+</body>
+</html>
