@@ -152,27 +152,29 @@
     <script >
         // var b = getVariable()
         alert(localStorage.getItem('bg'))
-        const bgmd = document.getElementById("bg-mode");
-        bgmd.addEventListener("click", function(){
-            if(localStorage.getItem('bg') == 0){
-                document.querySelector('body').style.backgroundColor='purple'
-                localStorage.setItem('bg',1)
-                alert(localStorage.getItem('bg'))
-                document.getElementById("bg-mode").style.backgroundColor='black'
-            }
-            else {
-                localStorage.setItem('bg',0)
-                alert(localStorage.getItem('bg'))
-                document.querySelector('body').style.backgroundColor='blue';
-                document.getElementById("bg-mode").style.backgroundColor='white'
-            }
-        })
-        if(localStorage.getItem('bg') == 0) {
-            document.getElementById("bg-mode").style.backgroundColor='white'
-        }
-        else {
-            document.getElementById("bg-mode").style.backgroundColor='black'
-        }
+        localStorage.setItem('bg',1)
+        alert(localStorage.getItem('bg'))
+        // const bgmd = document.getElementById("bg-mode");
+        // bgmd.addEventListener("click", function(){
+        //     if(localStorage.getItem('bg') == 0){
+        //         document.querySelector('body').style.backgroundColor='purple'
+        //         localStorage.setItem('bg',1)
+        //         alert(localStorage.getItem('bg'))
+        //         document.getElementById("bg-mode").style.backgroundColor='black'
+        //     }
+        //     else {
+        //         localStorage.setItem('bg',0)
+        //         alert(localStorage.getItem('bg'))
+        //         document.querySelector('body').style.backgroundColor='blue';
+        //         document.getElementById("bg-mode").style.backgroundColor='white'
+        //     }
+        // })
+        // if(localStorage.getItem('bg') == 0) {
+        //     document.getElementById("bg-mode").style.backgroundColor='white'
+        // }
+        // else {
+        //     document.getElementById("bg-mode").style.backgroundColor='black'
+        // }
         function handleSignUp(event) {
             event.preventDefault();
 

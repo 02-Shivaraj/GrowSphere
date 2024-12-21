@@ -11,7 +11,7 @@
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background-image: url('https://via.placeholder.com/1500'); /* Background image for the whole page */
+            background-image: url('../../assets/dark-bg.avif'); /* Background image for the whole page */
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -197,31 +197,31 @@
     <script src="../../assets/bg.js"></script>
     <script>
         alert(localStorage.getItem('bg'))
-        const modeToggleButton = document.getElementById('mode-toggle');
-        const body = document.body;
-        const moonIcon = modeToggleButton.querySelector('i');
+        // const modeToggleButton = document.getElementById('mode-toggle');
+        // const body = document.body;
+        // const moonIcon = modeToggleButton.querySelector('i');
 
-        if(localStorage.getItem('bg')==1){
-            moonIcon.classList.remove('fa-sun');
-            moonIcon.classList.add('fa-moon')
-            localStorage.setItem('bg',0)
-            // changeVariable(0)
-        }
-        modeToggleButton.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            // Toggle the moon/sun icon depending on mode
-            if (body.classList.contains('dark-mode')) {
-                moonIcon.classList.remove('fa-moon');
-                moonIcon.classList.add('fa-sun');
-                localStorage.setItem('bg',1)
-                // changeVariable(1)
-            } else {
-                moonIcon.classList.remove('fa-sun');
-                moonIcon.classList.add('fa-moon');
-                localStorage.setItem('bg',0)
-                // changeVariable(0)
-            }
-        });
+        // if(localStorage.getItem('bg')==1){
+        //     moonIcon.classList.remove('fa-sun');
+        //     moonIcon.classList.add('fa-moon')
+        //     localStorage.setItem('bg',0)
+        //     // changeVariable(0)
+        // }
+        // modeToggleButton.addEventListener('click', () => {
+        //     body.classList.toggle('dark-mode');
+        //     // Toggle the moon/sun icon depending on mode
+        //     if (body.classList.contains('dark-mode')) {
+        //         moonIcon.classList.remove('fa-moon');
+        //         moonIcon.classList.add('fa-sun');
+        //         localStorage.setItem('bg',1)
+        //         // changeVariable(1)
+        //     } else {
+        //         moonIcon.classList.remove('fa-sun');
+        //         moonIcon.classList.add('fa-moon');
+        //         localStorage.setItem('bg',0)
+        //         // changeVariable(0)
+        //     }
+        // });
     </script>
 </body>
 </html>

@@ -12,5 +12,5 @@ localStorage.setItem('bg', 0);
 //     return localStorage.getItem('bg'); // Return the current value of myVariable
 // }
 
-window.changeVariable = changeVariable; // Make the function globally accessible
-window.getVariable = getVariable;
+// window.changeVariable = changeVariable; // Make the function globally accessible
+// window.getVariable = getVariable;
