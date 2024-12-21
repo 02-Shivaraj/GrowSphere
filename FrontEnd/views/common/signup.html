@@ -9,7 +9,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #74b9ff, #81ecec);
+            /* background: linear-gradient(135deg, #74b9ff, #81ecec); */
+            background-color: red;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -97,9 +98,21 @@
                 opacity: 1;
             }
         }
+
+        #bg-mode {
+            position: absolute;
+            left: 90%;
+            top:2%;
+            height: 30px;
+            width: 30px;
+            border-radius: 30px;
+        }
     </style>
 </head>
 <body>
+    <div id="bg-mode">
+
+    </div>
     <div class="signup-container">
         <h1>Sign Up</h1>
         <form onsubmit="handleSignUp(event)">
@@ -135,7 +148,31 @@
         </div>
     </div>
 
-    <script>
+    <script src="../../assets/bg.js"></script>
+    <script >
+        // var b = getVariable()
+        alert(localStorage.getItem('bg'))
+        const bgmd = document.getElementById("bg-mode");
+        bgmd.addEventListener("click", function(){
+            if(localStorage.getItem('bg') == 0){
+                document.querySelector('body').style.backgroundColor='purple'
+                localStorage.setItem('bg',1)
+                alert(localStorage.getItem('bg'))
+                document.getElementById("bg-mode").style.backgroundColor='black'
+            }
+            else {
+                localStorage.setItem('bg',0)
+                alert(localStorage.getItem('bg'))
+                document.querySelector('body').style.backgroundColor='blue';
+                document.getElementById("bg-mode").style.backgroundColor='white'
+            }
+        })
+        if(localStorage.getItem('bg') == 0) {
+            document.getElementById("bg-mode").style.backgroundColor='white'
+        }
+        else {
+            document.getElementById("bg-mode").style.backgroundColor='black'
+        }
         function handleSignUp(event) {
             event.preventDefault();
 

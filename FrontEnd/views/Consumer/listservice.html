@@ -24,7 +24,7 @@
         header {
             width: 100%;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.7); /* Dark background */
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -47,16 +47,17 @@
         .service-card {
             width: 30%;
             margin: 15px 0;
-            height: 200px;
+            height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             background-size: cover;
             background-position: center;
             color: white;
-            text-align: center;
+            text-align: left;
+            padding: 20px;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -71,6 +72,12 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
+        .service-card .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
         .btn-primary {
             background-color: #0d6efd;
             border: none;
@@ -78,6 +85,8 @@
             padding: 10px 20px;
             font-size: 1.1rem;
             text-transform: uppercase;
+            color: aliceblue;
+            margin-top: 15px;
         }
 
         .btn-primary:hover {
@@ -105,19 +114,28 @@
 <body>
 
     <header>
-        <h1>List Your Services</h1>
+        <h1>Listed Services</h1>
     </header>
 
     <div class="container">
         <!-- Service Cards -->
         <div class="service-card" style="background-image: url('https://via.placeholder.com/400');">
-            <h2>Plumbing - ₹500/Hour</h2>
+            <h2>Plumbing</h2>
+            <p class="price">₹500/Hour</p>
+            <!-- Edit Button -->
+            <a href="addservice.html" class="btn-primary">Edit</a>
         </div>
         <div class="service-card" style="background-image: url('https://via.placeholder.com/400');">
-            <h2>Electrician - ₹600/Hour</h2>
+            <h2>Electrician</h2>
+            <p class="price">₹600/Hour</p>
+            <!-- Edit Button -->
+            <a href="addservice.html" class="btn-primary">Edit</a>
         </div>
         <div class="service-card" style="background-image: url('https://via.placeholder.com/400');">
-            <h2>Carpenter - ₹400/Hour</h2>
+            <h2>Carpenter</h2>
+            <p class="price">₹400/Hour</p>
+            <!-- Edit Button -->
+            <a href="addservice.html" class="btn-primary">Edit</a>
         </div>
     </div>
 

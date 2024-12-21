@@ -20,6 +20,13 @@
             align-items: center;
             justify-content: flex-start;
             color: #fff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #fff;
         }
 
         /* Header Section */
@@ -105,6 +112,40 @@
             background-color: #0b5ed7; /* Darker shade on hover */
         }
 
+        /* Round Button for Light/Dark Mode Toggle */
+        #mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        #mode-toggle i {
+            font-size: 20px;
+            color: #333;
+        }
+
+        /* Dark Mode Toggle Button Style */
+        body.dark-mode #mode-toggle {
+            background-color: #333;
+        }
+
+        body.dark-mode #mode-toggle i {
+            color: #fff;
+        }
+        .dark-mode{
+            background-image: url(../../assets/dark-bg.avif);
+        }
+
     </style>
 </head>
 <body>
@@ -146,7 +187,41 @@
         </div>
     </div>
 
+    <!-- Light/Dark Mode Toggle Button -->
+    <button id="mode-toggle" aria-label="Toggle Dark Mode">
+        <i class="fas fa-moon"></i> <!-- Default icon is the moon for dark mode -->
+    </button>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/bg.js"></script>
+    <script>
+        alert(localStorage.getItem('bg'))
+        const modeToggleButton = document.getElementById('mode-toggle');
+        const body = document.body;
+        const moonIcon = modeToggleButton.querySelector('i');
+
+        if(localStorage.getItem('bg')==1){
+            moonIcon.classList.remove('fa-sun');
+            moonIcon.classList.add('fa-moon')
+            localStorage.setItem('bg',0)
+            // changeVariable(0)
+        }
+        modeToggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            // Toggle the moon/sun icon depending on mode
+            if (body.classList.contains('dark-mode')) {
+                moonIcon.classList.remove('fa-moon');
+                moonIcon.classList.add('fa-sun');
+                localStorage.setItem('bg',1)
+                // changeVariable(1)
+            } else {
+                moonIcon.classList.remove('fa-sun');
+                moonIcon.classList.add('fa-moon');
+                localStorage.setItem('bg',0)
+                // changeVariable(0)
+            }
+        });
+    </script>
 </body>
 </html>
